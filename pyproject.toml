@@ -1,0 +1,13 @@
+[project]
+name = "libdlt"
+version = "0.1.0"
+description = ".dlt file creation tool"
+authors = [{ name = "memoryleak" }]
+license = "GPL-3.0-or-later"
+readme = "README.md"
+keywords = ["DLT", "library", "python"]
+requires-python = ">= 3.8"
+
+[project.urls]
+homepage = "https://github.com/Flipleerr/libdlt"
+repository = "https://github.com/Flipleerr/libdlt"
