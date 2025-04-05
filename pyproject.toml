@@ -1,13 +1,13 @@
 [project]
-name = "libdlt"
+name = "libdiva"
 version = "0.1.0"
-description = ".dlt file creation tool"
+description = "library with tools to manipulate file formats found in Project Diva"
 authors = [{ name = "memoryleak" }]
 license = "GPL-3.0-or-later"
 readme = "README.md"
-keywords = ["DLT", "library", "python"]
+keywords = ["DLT", "library", "python", "Project Diva"]
 requires-python = ">= 3.8"
 
 [project.urls]
-homepage = "https://github.com/Flipleerr/libdlt"
-repository = "https://github.com/Flipleerr/libdlt"
+homepage = "https://github.com/Flipleerr/libdiva"
+repository = "https://github.com/Flipleerr/libdiva"
