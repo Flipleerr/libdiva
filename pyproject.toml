@@ -7,7 +7,13 @@ license = "GPL-3.0-or-later"
 readme = "README.md"
 keywords = ["DLT", "library", "python", "Project Diva"]
 requires-python = ">= 3.8"
+dependencies = [
+  "pycryptodome"
+]
 
 [project.urls]
 homepage = "https://github.com/Flipleerr/libdiva"
 repository = "https://github.com/Flipleerr/libdiva"
+
+[project.scripts]
+libdiva = "libdiva.__main__:main"
