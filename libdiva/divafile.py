@@ -53,10 +53,11 @@ def decrypt_divafile(filepath):
   encrypted_payload = encrypted_data[HEADER_SIZE:HEADER_SIZE + len_payload]
   decrypted_payload = cipher.decrypt(encrypted_payload)
 
+  # to be honest, this implementation is stupid, but hey it works!
   if filepath.endswith('.txt'):
-    output_path = filepath
+    output_path = filepath[:-4] + '_decrypted.txt'
   else:
-    output_path = filepath + '.txt'
+    output_path = filepath[:-4] + '_decrypted.txt'
 
   with open(output_path, "wb") as f:
     f.write(decrypted_payload[:len_plaintext])
