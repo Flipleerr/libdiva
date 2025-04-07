@@ -24,8 +24,7 @@ def main():
         print(f"Encrypted: {output_path}")
 
     elif args.decrypt:
-        divafile = decrypt_divafile(args.filepath)
-        divafile.decrypt()
+        output_path = decrypt_divafile(args.filepath)
         print(f"Decrypted {args.filepath}")
 
     else:
