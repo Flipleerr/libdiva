@@ -1,8 +1,10 @@
+"""libdiva - a library for manitpulating files specific to the Project Diva series"""
 import argparse
 from .dlt import DLTReader, DLTWriter
 from .divafile import encrypt_divafile, decrypt_divafile
 
 def main():
+    """main method"""
     parser = argparse.ArgumentParser(description="Read and write various Project Diva files.")
     parser.add_argument("filepath", type=str, help="Path to the DLT file")
     parser.add_argument("--write", nargs="+", help="Write to DLT file")
@@ -16,7 +18,7 @@ def main():
             dlt_writer.add_entry(entry)
         dlt_writer.write()
         print(f"Written to {args.filepath}")
-    
+
     elif args.encrypt:
         with open(args.filepath, "rb") as file:
             input_data = file.read()

@@ -1,7 +1,6 @@
-import os
-import sys
-
+"""DLT file reader and writer"""
 class DLTReader:
+  """class to read DLT files"""
   def __init__(self, filepath):
     self.filepath = filepath
     self.contents = []
@@ -15,6 +14,7 @@ class DLTReader:
       print(self.contents)
 
 class DLTWriter:
+  """class to write DLT files"""
   def __init__(self, filepath):
     self.filepath = filepath
     self.entries = []

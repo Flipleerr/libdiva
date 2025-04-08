@@ -1,3 +1,4 @@
+"""DIVAFILE encryption and decryption module"""
 from Crypto.Cipher import AES
 
 DIVA_MAGIC = b"DIVAFILE"
@@ -5,12 +6,14 @@ DIVA_KEY = b"file access deny"
 HEADER_SIZE = 16 # 8 bytes for magic, 4 bytes for LEN_PAYLOAD and 4 bytes for LEN_PLAINTEXT
 
 def pad_data(data: bytes):
+    """pads data to be a multiple of 16 bytes"""
     block_size = 16
     pad_len = block_size - (len(data) % block_size)
     padded_data = data + (b"\x00" * pad_len)
     return padded_data, len(padded_data)
 
 def encrypt_divafile(input_data, filepath):
+    """encryption function for DIVAFILE"""
     cipher = AES.new(DIVA_KEY, AES.MODE_ECB)
 
     padded_data, len_payload = pad_data(input_data)
@@ -36,6 +39,7 @@ def encrypt_divafile(input_data, filepath):
     return output_path
 
 def decrypt_divafile(filepath):
+  """decryption function for DIVAFILE"""
   with open(filepath, "rb") as f:
     encrypted_data = f.read()
 
