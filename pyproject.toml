@@ -1,7 +1,7 @@
 [project]
 name = "libdiva"
-version = "0.1.0"
-description = "library with tools to manipulate file formats found in Project Diva"
+version = "0.1.1"
+description = "libdiva - a library for manitpulating files specific to the Project Diva series"
 authors = [{ name = "memoryleak" }]
 license = "GPL-3.0-or-later"
 readme = "README.md"
@@ -17,3 +17,6 @@ repository = "https://github.com/Flipleerr/libdiva"
 
 [project.scripts]
 libdiva = "libdiva.__main__:main"
+
+[tool.pylint.format]
+indent-string = "  "

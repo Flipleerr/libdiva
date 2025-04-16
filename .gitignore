@@ -2,3 +2,5 @@ __pycache__/
 *.py[cod]
 libdiva.egg-info/
 build/
+.nova/
+.DS_Store
