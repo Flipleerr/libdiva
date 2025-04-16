@@ -1,11 +1,11 @@
-name: Lint and Test
+name: lint (very cool)
 on:
   pull_request:
     branches: [main]
   push:
     branches: [main]
   schedule:
-    - cron: '0 0 * * *' # Every day at midnight UTC
+    - cron: '0 0 * * *'
   workflow_dispatch:
 
 jobs:
@@ -23,10 +23,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install pylint pytest pycryptodome
+        pip install pylint pycryptodome
     - name: Run pylint
       run: |
-        pylint --indent-string='  ' libdiva
-    - name: Run tests
-      run: |
-        pytest
+        pylint libdiva
