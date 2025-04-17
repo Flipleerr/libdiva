@@ -6,40 +6,43 @@ DIVA_KEY = b"file access deny"
 HEADER_SIZE = 16 # 8 bytes for magic, 4 bytes for LEN_PAYLOAD and 4 bytes for LEN_PLAINTEXT
 
 def pad_data(data: bytes):
-    """pads data to be a multiple of 16 bytes"""
-    block_size = 16
-    pad_len = block_size - (len(data) % block_size)
-    padded_data = data + (b"\x00" * pad_len)
-    return padded_data, len(padded_data)
+  """pads data to be a multiple of 16 bytes"""
+  block_size = 16
+  pad_len = block_size - (len(data) % block_size)
+  padded_data = data + (b"\x00" * pad_len)
+  return padded_data, len(padded_data)
 
-def encrypt_divafile(input_data, filepath):
-    """encryption function for DIVAFILE"""
-    cipher = AES.new(DIVA_KEY, AES.MODE_ECB)
+def encrypt_divafile(filepath):
+  """encrypt a file using DIVAFILE""" 
+  with open(filepath, 'rb') as f:
+    input_data = f.read()
 
-    padded_data, len_payload = pad_data(input_data)
-    len_plaintext = len(input_data)
+  cipher = AES.new(DIVA_KEY, AES.MODE_ECB)
 
-    print(f"Info: Input data length: {len(input_data)}")
-    print(f"Info: Padded data length: {len(padded_data)}")
+  padded_data, len_payload = pad_data(input_data)
+  len_plaintext = len(input_data)
 
-    encrypted_data = cipher.encrypt(padded_data)
-    print(f"Info: Encrypted data length: {len(encrypted_data)}")
+  print(f"info: input data length: {len(input_data)}")
+  print(f"info: padded data length: {len(padded_data)}")
 
-    output_path = filepath + ".txt"
+  encrypted_data = cipher.encrypt(padded_data)
+  print(f"info: encrypted data length: {len(encrypted_data)}")
 
-    header = (
-        DIVA_MAGIC +
-        len_payload.to_bytes(4, 'little') +
-        len_plaintext.to_bytes(4, 'little')
-    )
+  output_path = filepath + ".txt"
 
-    with open(output_path, "wb") as f:
-        f.write(header + encrypted_data)
+  header = (
+    DIVA_MAGIC +
+    len_payload.to_bytes(4, 'little') +
+    len_plaintext.to_bytes(4, 'little')
+  )
 
-    return output_path
+  with open(output_path, "wb") as f:
+    f.write(header + encrypted_data)
+
+  return output_path
 
 def decrypt_divafile(filepath):
-  """decryption function for DIVAFILE"""
+  """decrypt a file from DIVAFILE"""
   with open(filepath, "rb") as f:
     encrypted_data = f.read()
 
@@ -49,8 +52,8 @@ def decrypt_divafile(filepath):
   len_payload = int.from_bytes(encrypted_data[8:12], 'little')
   len_plaintext = int.from_bytes(encrypted_data[12:16], 'little')
 
-  print("Debug: contents of len_payload: ", len_payload)
-  print("Debug: contents of len_plaintext: ", len_plaintext)
+  print("info: contents of len_payload: ", len_payload)
+  print("info: contents of len_plaintext: ", len_plaintext)
 
   cipher = AES.new(DIVA_KEY, AES.MODE_ECB)
 
