@@ -1,0 +1,49 @@
+name: bug report
+description: report a bug encountered when using libdiva
+title: "[BUG]: "
+labels: ["bug"]
+body:
+- type: checkboxes
+  attributes:
+    label: is there already an issue for this?
+    description: please check if someone has reported the same issue you're having.
+    options:
+    - label: I have checked the Issues page
+      required: true
+- type: textarea
+  attributes:
+    label: description
+    description: a concise description of the observed behavior when running libdiva.
+  validations:
+    required: false
+- type: textarea
+  attributes:
+    label: expected behavior
+    description: a consice description of what's supposed to happen.
+  validations:
+    required: false
+- type: textarea
+  attributes:
+    label: steps to reproduce
+    description: describe how to reproduce the observed bug.
+    placeholder: |
+      1. activate venv...
+      2. run command...
+      3. libdiva throws error...
+  validations:
+    required: false
+- type: textarea
+  attributes:
+    label: environment
+    description: where you're using libdiva.
+    placeholder: |
+      OS: Windows 11 23H2
+      libdiva version: 0.1.1
+      venv: yes/no
+- type: textarea
+  attributes:
+    label: additional context
+    description: provide any other info that may be crucial in reproducing the issue here. attach screenshots or videos if applicable.
+  validations:
+    required: false
+
