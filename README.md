@@ -23,10 +23,11 @@ libdiva supports the following options:
 - `--read`: print an existing DLT file
 - `--encrypt`: encrypt a file using DIVAFILE
 - `--decrypt`: decrypt a file encrypted with DIVAFILE
+- `--extract`: extract a FARC archive
 
 an example of using the CLI tool:
 
-`libdiva [--write, --read, --encrypt, --decrypt] filepath`
+`libdiva [--write, --read, --encrypt, --decrypt, --extract] filepath output-dir`
 
 >[!NOTE]
 >you can also use libdiva like a proper library by entering `import libdiva` in your script.
@@ -50,5 +51,5 @@ all contributions to libdiva are welcome! to start:
 
 then submit a pull request!
 
-> [!NOTE]
+> [!IMPORTANT]
 > keep in mind that **GitHub Actions will automatically lint your code** when creating a pull request. if pylint fails, you'll be asked to fix the issues before merging. you can run pylint locally to check before pushing.
