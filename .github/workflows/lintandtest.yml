@@ -1,9 +1,9 @@
 name: lint (very cool)
 on:
   pull_request:
-    branches: [main]
+    branches: [master]
   push:
-    branches: [main]
+    branches: [master]
   schedule:
     - cron: '0 0 * * *'
   workflow_dispatch:
