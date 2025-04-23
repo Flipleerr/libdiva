@@ -48,8 +48,6 @@ class ExtractFARC:
   
   def _FArC(self):
     """defines variables for FArC extraction"""
-    # hacky way of checking FArCs
-    # uncompressed FArCs exist and all files inside are 0 bytes when "decompressed"
     self.header = b"FArC"
     self.is_compressed = True
     self.is_encrypted = False
@@ -121,10 +119,11 @@ class ExtractFARC:
 
         f.seek(entry['offset'])
 
-        if self.header == b"FArc" or (entry['zsize'] is not None and entry['size'] == entry['zsize']):
+        if entry['zsize'] is not None and entry['size'] == entry['zsize']:
+          self.is_compressed = False
           data = f.read(entry['size'])
 
-        else:
+        if self.is_compressed:
           # align zsize to a 16 byte boundary because AES
           aligned_zsize = entry['zsize']
           if aligned_zsize % 16 != 0:
