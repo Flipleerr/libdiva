@@ -1,6 +1,6 @@
 [project]
 name = "libdiva"
-version = "0.1.1"
+version = "0.1.2"
 description = "libdiva - a library for manitpulating files specific to the Project Diva series"
 authors = [{ name = "memoryleak" }]
 license = "GPL-3.0-or-later"
