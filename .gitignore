@@ -4,3 +4,4 @@ libdiva.egg-info/
 build/
 .nova/
 .DS_Store
+dist/
