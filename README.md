@@ -25,19 +25,20 @@ libdiva supports the following options:
 - `--decrypt`: decrypt a file encrypted with DIVAFILE
 - `--extract`: extract a FARC archive
 
-an example of using the CLI tool:
+some example of using the CLI tool:
 
-`libdiva [--write, --read, --encrypt, --decrypt, --extract] filepath output-dir`
+`libdiva --encrypt file.txt`
+`libdiva --extract file.farc extracted`
 
->[!NOTE]
->you can also use libdiva like a proper library by entering `import libdiva` in your script.
+> [!TIP]
+> you can also use libdiva like a proper library by entering `import libdiva` in your script.
 
 ## to-do
 - [ ] FARC support (extract and repack)
-- [ ] improved file handling
-- [ ] batch operations (for now these can be done through user scripts)
-- [ ] support for other Project Diva formats (`.cpk`, `Dreamy Theater` and `F` files, etc.)
+- [ ] DLT boilerplate
+- [ ] support for other Project Diva formats (`.cpk`, Dreamy Theater and F files, etc.)
 - [ ] proper documentation or wiki
+- [ ] a verbose option (-v or --verbose)
 
 > [!NOTE]
 > feel free to try your hand at any of these issues - any improvements help!
