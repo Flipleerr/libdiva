@@ -99,7 +99,20 @@ class ExtractFARC:
         self.entries = [entry for entry in self.entries if entry['name'] and (entry['size'] > 0 or entry['zsize'] > 0)]
 
         curr_pos = f.tell()
-        print(self.entries)
+
+  def info(self):
+    """
+    grabs info about a FARC file and prints it to the user.
+    """
+    if self.is_compressed and self.is_encrypted:
+      print("type: FARC")
+    elif self.is_compressed:
+      print("type: FArC")
+    else:
+      print("type: FArc")
+    print("entries:")
+    for entry in self.entries:
+      print(f"-- {entry['name']} (size in bytes: {entry['size']})")
         
   def extract(self, output_dir=None):
     """
@@ -110,6 +123,8 @@ class ExtractFARC:
       self.parse_entries()
 
     os.makedirs(output_dir, exist_ok=True)
+    
+    self.info()
 
     with open(self.filepath, 'rb') as f:
       for entry in self.entries:
@@ -122,6 +137,7 @@ class ExtractFARC:
         if entry['zsize'] is not None and entry['size'] == entry['zsize']:
           self.is_compressed = False
           data = f.read(entry['size'])
+          print(f"extracted {entry['name']}")
 
         if self.is_compressed:
           # align zsize to a 16 byte boundary because AES
@@ -137,12 +153,12 @@ class ExtractFARC:
             compressed_data = cipher.decrypt(compressed_data)
             compressed_data = compressed_data[:entry['zsize']]
 
-          print(f"extracting {entry['name']}: size={entry['size']}, zsize={entry['size']}, compressed data length={len(compressed_data)}")
+          print(f"extracting {entry['name']}")
 
           try:
             data = gzip.decompress(compressed_data)
             if len(data) != entry['size']:
-              print("warning: decompressed data length is longer than original")
+              print("warning: decompressed data length does not match original")
 
           # pylint complains about this block; but the sheer amount of gzip errors is absurd so off it goes
           except Exception as e:

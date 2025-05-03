@@ -20,6 +20,7 @@ def main():
   parser.add_argument("--decrypt", action="store_true", help="decrypt a file from DIVAFILE")
   parser.add_argument("--extract", action="store_true", help="extract a FARC")
   parser.add_argument("--help", action="help", help="show this help message and exit")
+  parser.add_argument("--version", action="version", version="libdiva v0.1.2 (the filler update)")
   args = parser.parse_args()
 
   if args.write:
