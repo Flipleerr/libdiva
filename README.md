@@ -1,5 +1,5 @@
 # libdiva
-library with tools to manipulate file formats found in Project Diva
+a Project Diva format library and command-line tool
 
 ## installation
 open a terminal session and install using pip:
@@ -11,7 +11,7 @@ alternatively, clone the repo and install locally:
 ```
 git clone https://github.com/Flipleerr/libdiva
 cd libdiva
-pip install . (add the -e flag if you'd like to contribute)
+pip install .
 ```
 
 libdiva should now be installed. test by running `libdiva --help`.
@@ -28,6 +28,7 @@ libdiva supports the following options:
 some example of using the CLI tool:
 
 `libdiva --encrypt file.txt`
+
 `libdiva --extract file.farc extracted`
 
 > [!TIP]
