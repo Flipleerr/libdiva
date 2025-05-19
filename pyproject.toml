@@ -1,19 +1,17 @@
 [project]
 name = "libdiva"
-version = "0.1.2"
+version = "0.1.3"
 description = "libdiva - a library for manitpulating files specific to the Project Diva series"
 authors = [{ name = "memoryleak" }]
 license = "GPL-3.0-or-later"
 readme = "README.md"
 keywords = ["DLT", "library", "python", "Project Diva"]
 classifiers = [
-    "Programming Language :: Python :: 3",
-    "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Operating System :: OS Independent",
 ]
 requires-python = ">= 3.8"
-dependencies = [
-  "pycryptodome"
-]
+dependencies = ["pycryptodome"]
 
 [build-system]
 requires = ["setuptools >= 77.0.3"]

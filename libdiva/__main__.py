@@ -13,7 +13,7 @@ def main():
       add_help=False)
   subparsers = parser.add_subparsers(dest="command", required=True)
   parser.add_argument("--help", action="help", help="show this help message and exit")
-  parser.add_argument("--version", action="version", version="libdiva v0.1.2 (the filler update)")
+  parser.add_argument("--version", action="version", version="libdiva v0.1.3")
   dlt_parser = subparsers.add_parser("dlt", help="read or write DLT files")
   dlt_parser.add_argument("filepath", nargs="?", type=str, help="path to your file of choice")
   dlt_parser.add_argument("--write", help="write to DLT file")
