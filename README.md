@@ -23,8 +23,8 @@ libdiva should now be installed. test by running `libdiva --help`.
 libdiva supports the following formats:
 
 - `dlt`: format used on the PS3 and Vita onwards, has information about files inside of DLC
-- 'DIVAFILE': encryption format used in F 2nd and X
-- 'FARC': compression format used in F 2nd and X
+- `DIVAFILE`: encryption format used in F 2nd and X
+- `FARC`: compression format used in F 2nd and X
 
 ## usage examples
 
