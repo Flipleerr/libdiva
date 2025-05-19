@@ -1,7 +1,9 @@
 # libdiva
+
 a Project Diva format library and command-line tool
 
 ## installation
+
 open a terminal session and install using pip:
 
 `pip install libdiva`
@@ -16,36 +18,41 @@ pip install .
 
 libdiva should now be installed. test by running `libdiva --help`.
 
-## usage
-libdiva supports the following options:
+## supported formats
 
-- `--write`: create a fresh DLT file with the contents of your choice
-- `--read`: print an existing DLT file
-- `--encrypt`: encrypt a file using DIVAFILE
-- `--decrypt`: decrypt a file encrypted with DIVAFILE
-- `--extract`: extract a FARC archive
+libdiva supports the following formats:
 
-some example of using the CLI tool:
+- `dlt`: format used on the PS3 and Vita onwards, has information about files inside of DLC
+- 'DIVAFILE': encryption format used in F 2nd and X
+- 'FARC': compression format used in F 2nd and X
 
-`libdiva --encrypt file.txt`
+## usage examples
 
-`libdiva --extract file.farc extracted`
+`libdiva dlt --write file.dlt --entries "data"`
+
+`libdiva divafile --encrypt file.txt`
+
+`libdiva extract file.farc extracted`
 
 > [!TIP]
 > you can also use libdiva like a proper library by entering `import libdiva` in your script.
 
 ## to-do
+
 - [ ] FARC support (extract and repack)
 - [ ] DLT boilerplate
 - [ ] support for other Project Diva formats (`.cpk`, Dreamy Theater and F files, etc.)
 - [ ] proper documentation or wiki
+- [ ] refactor codebase
 - [ ] a verbose option (-v or --verbose)
 
 > [!NOTE]
 > feel free to try your hand at any of these issues - any improvements help!
 
 ## contributing
+
 all contributions to libdiva are welcome! to start:
+
 1. fork the repo
 2. clone it using `git clone https://github.com/USERNAME/libdiva (REPLACE 'USERNAME' WITH YOUR OWN!)`
 3. create a new branch in the repo
